@@ -2801,6 +2801,191 @@ tbody td:first-child {
 
 
 /* =====================================================
+   THIS YEAR'S IDOL
+===================================================== */
+
+.idol-section {
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(244,185,66,.16),
+            transparent 40%
+        ),
+        var(--cream-2);
+}
+
+
+.idol-showcase {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    position: relative;
+
+    padding: 4px;
+
+    border-radius: 34px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d1708,
+            #f4b942,
+            #8d1708
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(80,30,0,.2);
+}
+
+
+.idol-showcase-inner {
+
+    position: relative;
+
+    padding: 32px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #fff0c6
+        );
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.idol-glow {
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,200,60,.3);
+
+    filter: blur(70px);
+
+    top: -120px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        tableGlow 5s
+        ease-in-out
+        infinite alternate;
+
+    pointer-events: none;
+}
+
+
+.idol-frame {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 460px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    border:
+        4px solid white;
+
+    box-shadow:
+        0 15px 40px
+        rgba(80,30,0,.25);
+}
+
+
+.idol-frame img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    max-height: 520px;
+
+    object-fit: cover;
+}
+
+
+.idol-badge {
+
+    position: absolute;
+
+    top: 14px;
+
+    left: 14px;
+
+    padding:
+        6px 14px;
+
+    border-radius: 20px;
+
+    background:
+        var(--sindoor);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0,0,0,.25);
+}
+
+
+.idol-showcase h3 {
+
+    position: relative;
+
+    color: #8b1b08;
+
+    font-family:
+        var(--font-display);
+
+    font-size: 26px;
+
+    margin-bottom: 10px;
+}
+
+
+.idol-showcase p {
+
+    position: relative;
+
+    color: #70411f;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
    GALLERY
 ===================================================== */
 
@@ -3460,7 +3645,7 @@ tbody td:first-child {
 
 /* =====================================================
    BACK TO TOP
-===================================================== */
+===================================================== 
 
 #backToTop {
 
@@ -3508,7 +3693,7 @@ tbody td:first-child {
         translateY(-4px)
         scale(1.05);
 }
-
+*/
 
 /* =====================================================
    FOOTER
@@ -4034,6 +4219,18 @@ footer h2 {
     .toranam-strip {
 
         height: 32px;
+    }
+
+
+    .idol-showcase-inner {
+
+        padding: 20px;
+    }
+
+
+    .idol-frame img {
+
+        max-height: 380px;
     }
 
 

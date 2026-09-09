@@ -36,7 +36,7 @@ const particleEmojis = [
     "🌺",
     "🌼",
     "✨",
-    "🪔",
+    "🌟",
     "🍃",
     "✦"
 ];
@@ -351,12 +351,32 @@ setInterval(
 
 /* =====================================================
    PREMIUM GOLDEN SPARK FIELD
+
+   NOTE (PERFORMANCE FIX):
+   This canvas used to run requestAnimationFrame
+   forever, for the entire lifetime of the page,
+   even while the hero section was scrolled far out
+   of view. Combined with the blurred radial-gradient
+   draw per spark, that constant off-screen redraw
+   is what was making scrolling feel "stuck" / janky,
+   especially on phones.
+
+   Fix: only run the animation loop while the hero
+   section is actually visible on screen, using an
+   IntersectionObserver. It pauses automatically the
+   moment you scroll away and resumes when you scroll
+   back up.
 ===================================================== */
 
 const sparkCanvas =
     document.getElementById(
         "sparkCanvas"
     );
+
+
+let sparkAnimationId = null;
+
+let sparksRunning = false;
 
 
 if (sparkCanvas) {
@@ -560,6 +580,11 @@ if (sparkCanvas) {
 
     function animateSparks() {
 
+        if (!sparksRunning) {
+            return;
+        }
+
+
         const width =
             sparkCanvas.clientWidth;
 
@@ -631,9 +656,42 @@ if (sparkCanvas) {
         });
 
 
-        requestAnimationFrame(
-            animateSparks
-        );
+        sparkAnimationId =
+            requestAnimationFrame(
+                animateSparks
+            );
+
+    }
+
+
+    function startSparks() {
+
+        if (sparksRunning) {
+            return;
+        }
+
+
+        sparksRunning = true;
+
+        animateSparks();
+
+    }
+
+
+    function stopSparks() {
+
+        sparksRunning = false;
+
+
+        if (sparkAnimationId) {
+
+            cancelAnimationFrame(
+                sparkAnimationId
+            );
+
+            sparkAnimationId = null;
+
+        }
 
     }
 
@@ -642,7 +700,56 @@ if (sparkCanvas) {
 
     initializeSparks();
 
-    animateSparks();
+
+    const heroSection =
+        document.getElementById(
+            "home"
+        );
+
+
+    if (
+        heroSection &&
+        "IntersectionObserver" in window
+    ) {
+
+        const heroObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                startSparks();
+
+                            } else {
+
+                                stopSparks();
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0
+                }
+            );
+
+
+        heroObserver.observe(
+            heroSection
+        );
+
+    } else {
+
+        startSparks();
+
+    }
 
 
     window.addEventListener(
@@ -1132,6 +1239,16 @@ function showToast(message) {
 
 /* =====================================================
    SCROLL SYSTEM
+
+   NOTE (PERFORMANCE FIX):
+   The scroll handler previously ran its full body
+   (reading layout metrics + writing styles) on every
+   single native "scroll" event, which fires far more
+   often than the screen can actually repaint. That
+   layout-thrashing is a second cause of the "stuck"
+   scrolling feeling. It's now wrapped in
+   requestAnimationFrame so the work only happens once
+   per rendered frame.
 ===================================================== */
 
 const navbar =
@@ -1150,6 +1267,9 @@ const scrollFill =
     document.getElementById(
         "scrollFill"
     );
+
+
+let scrollTicking = false;
 
 
 function onScroll() {
@@ -1196,12 +1316,27 @@ function onScroll() {
 
     }
 
+
+    scrollTicking = false;
+
 }
 
 
 window.addEventListener(
     "scroll",
-    onScroll,
+    () => {
+
+        if (!scrollTicking) {
+
+            scrollTicking = true;
+
+            requestAnimationFrame(
+                onScroll
+            );
+
+        }
+
+    },
     {
         passive: true
     }
