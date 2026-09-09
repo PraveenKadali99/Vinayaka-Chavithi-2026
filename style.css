@@ -43,7 +43,7 @@
 
 
 /* =====================================================
-   RESET
+   RESET & SMOOTH SCROLL FIX
 ===================================================== */
 
 * {
@@ -54,7 +54,7 @@
 
 
 html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
 }
 
 
@@ -155,6 +155,8 @@ a {
 
     background:
         rgba(160,30,10,.12);
+
+    pointer-events: none;
 }
 
 
@@ -249,8 +251,8 @@ a {
 
     position: relative;
 
-    width: 130px;
-    height: 130px;
+    width: 380px;
+    height: 380px;
 
     display: flex;
 
@@ -695,6 +697,8 @@ nav a:hover::after {
         repeat-x;
 
     opacity: .9;
+
+    pointer-events: none;
 }
 
 
@@ -842,6 +846,8 @@ nav a:hover::after {
     animation:
         rangoliSpin
         60s linear infinite;
+
+    pointer-events: none;
 }
 
 
@@ -1545,62 +1551,6 @@ nav a:hover::after {
 
 
 /* =====================================================
-   HERO BUTTON
-===================================================== */
-
-.hero-button {
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding:
-        14px 31px;
-
-    border-radius: 50px;
-
-    color: #601000;
-
-    text-decoration: none;
-
-    font-weight: 800;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd75c,
-            #fff1a8,
-            #f6b92e
-        );
-
-    box-shadow:
-        0 8px 30px
-        rgba(255,180,40,.4);
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition:
-        transform .3s,
-        box-shadow .3s;
-}
-
-
-.hero-button:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.04);
-
-    box-shadow:
-        0 12px 40px
-        rgba(255,180,40,.65);
-}
-
-
-/* =====================================================
    HERO FLOATING OBJECTS
 ===================================================== */
 
@@ -2251,7 +2201,7 @@ nav a:hover::after {
 
 
 /* =====================================================
-   DONATION
+   DONATION & PAY BUTTON STYLING
 ===================================================== */
 
 .donation-container {
@@ -2346,7 +2296,7 @@ nav a:hover::after {
 
     flex-direction: column;
 
-    gap: 10px;
+    gap: 12px;
 
     padding: 20px;
 
@@ -2361,10 +2311,44 @@ nav a:hover::after {
     font-weight: 700;
 
     color: #8b1b08;
+
+    font-size: 18px;
 }
 
 
-.upi-details button {
+/* DIRECT PHONEPE / GPAY BUTTON */
+.direct-pay-btn {
+
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+
+    color: white !important;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.direct-pay-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+}
+
+
+.copy-upi-btn {
 
     border: none;
 
@@ -2531,6 +2515,8 @@ nav a:hover::after {
         tableGlow 5s
         ease-in-out
         infinite alternate;
+
+    pointer-events: none;
 }
 
 
@@ -3644,58 +3630,6 @@ tbody td:first-child {
 
 
 /* =====================================================
-   BACK TO TOP
-===================================================== 
-
-#backToTop {
-
-    position: fixed;
-
-    right: 20px;
-    bottom: 24px;
-
-    z-index: 900;
-
-    width: 48px;
-    height: 48px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--sindoor),
-            var(--flame)
-        );
-
-    color: white;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    display: none;
-
-    box-shadow:
-        0 8px 20px
-        rgba(161,29,10,.4);
-
-    transition:
-        transform .25s;
-}
-
-
-#backToTop:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.05);
-}
-*/
-
-/* =====================================================
    FOOTER
 ===================================================== */
 
@@ -4023,8 +3957,6 @@ footer h2 {
     }
 
 
-    /* EXACT MOBILE CENTER */
-
     .ganesha-wrapper {
 
         width: 270px;
@@ -4135,13 +4067,6 @@ footer h2 {
     .time-box span {
 
         font-size: 22px;
-    }
-
-
-    .hero-button {
-
-        padding:
-            12px 25px;
     }
 
 
@@ -4311,54 +4236,6 @@ footer h2 {
                 #8d1708,
                 #e18b16
             );
-    }
-
-
-    .annadanam-table
-    td:nth-child(2)::before {
-
-        content:
-            "Contributor";
-
-        display: block;
-
-        margin-bottom: 3px;
-
-        color:
-            #a15b26;
-
-        font-size: 10px;
-
-        font-weight: 800;
-
-        text-transform:
-            uppercase;
-
-        letter-spacing: 1px;
-    }
-
-
-    .annadanam-table
-    td:nth-child(3)::before {
-
-        content:
-            "Food / Contribution";
-
-        display: block;
-
-        margin-bottom: 3px;
-
-        color:
-            #a15b26;
-
-        font-size: 10px;
-
-        font-weight: 800;
-
-        text-transform:
-            uppercase;
-
-        letter-spacing: 1px;
     }
 
 

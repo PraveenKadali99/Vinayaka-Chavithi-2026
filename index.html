@@ -35,14 +35,14 @@
 
 <!-- =====================================================
      SCROLL PROGRESS
-===================================================== 
+===================================================== -->
 
 <div class="scroll-toranam">
     <div class="scroll-toranam-fill"
          id="scrollFill">
     </div>
 </div>
--->
+
 
 <!-- =====================================================
      LOADER
@@ -56,7 +56,14 @@
         <span class="ring r2"></span>
 
         <span class="loader-om">
-            卐
+            <div class="ganesha-photo-frame">
+                <img
+                    src="logo.jpeg"
+                    alt="Lord Ganesha"
+                    class="ganesha-image"
+                    loading="eager"
+                >
+            </div>
         </span>
 
     </div>
@@ -448,7 +455,7 @@
             <b>⌄</b>
             
 
-        </div>
+        </div> 
 
 
     </div>
@@ -545,7 +552,7 @@
 
 
 <!-- =====================================================
-     THIS YEAR'S IDOL  (NEW SECTION)
+     THIS YEAR'S IDOL
 ===================================================== -->
 
 <section class="section idol-section"
@@ -593,14 +600,10 @@
                       data-en="2026">
                     2026
                 </span>
-<!---
-                <img
-                    src="New_Ganesha01.jpeg"
-                    alt="This Year's Vinayaka Idol 2026"> -->
+
                 <img
                     src="New02.jpeg"
                     alt="This Year's Vinayaka Idol 2026">
-            
 
             </div>
 
@@ -972,8 +975,6 @@
 <div class="toranam-strip"></div>
 
 
-
-
 <!-- =====================================================
      GALLERY
 ===================================================== -->
@@ -1118,15 +1119,17 @@
             <div class="winner-crown">
                 👑
             </div>
-            <bold>
+
             <h2>
-                Vasamsetti Prasad
+                Vasamsetti Prasad 
             </h2>
-            </bold>
+
             <h3>Price: 6000/-</h3>
+
             <p
                 data-te="గత సంవత్సరం లడ్డూ వేలం పాట విజేత"
                 data-en="Last Year's Laddu Auction Winner">
+
                 గత సంవత్సరం లడ్డూ వేలం పాట విజేత
 
             </p>
@@ -1137,8 +1140,9 @@
 
 </section>
 
+
 <!-- =====================================================
-     DONATIONS
+     DONATIONS (DIRECT PHONEPE PAY LINK ADDED HERE)
 ===================================================== -->
 
 <section class="section donation-section"
@@ -1200,8 +1204,13 @@
                     9581318959@axl
                 </span>
 
-                <button onclick="copyUPI()">
-                    📋 Copy UPI
+                <!-- DIRECT PAY BUTTON ADDED -->
+                <a href="upi://pay?pa=9581318959@axl&pn=Vinayaka%20Chavithi%20Committee&cu=INR" class="direct-pay-btn" onclick="openPaymentApp(event)">
+                    📱 Click Here To Pay (PhonePe / GPay)
+                </a>
+
+                <button onclick="copyUPI()" class="copy-upi-btn">
+                    📋 Copy UPI ID
                 </button>
 
             </div>
@@ -1330,10 +1339,10 @@
 
                         <span class="donor-name">
                             <small>
-                            <h3 data-en="Koppisetti Raghavulu & Kadali Veeravenkata Krishna Murthi s/o Sriramulu"
-                        data-te="కొప్పిశెట్టి రఘవులు & కడలి వీరవెంకట కృష్ణ మూర్తి s/o శ్రీరాములు "
-                    ></h3>
-                                </small>
+                                <h3 data-en="Koppisetti Raghavulu & Kadali Veeravenkata Krishna Murthi s/o Sriramulu"
+                                    data-te="కొప్పిశెట్టి రఘవులు & కడలి వీరవెంకట కృష్ణ మూర్తి s/o శ్రీరాములు ">
+                                </h3>
+                            </small>
                         </span>
 
                     </td>
@@ -1366,10 +1375,9 @@
                         <span class="donor-name">
                             <small>
                              <h3 data-en="Vasamsetti sai Prasad & Guttula Prasad s/o yedukondalu & Kadali Venkana s/o Sriramulu "
-                                 data-te="వాసంశెట్టి సాయి ప్రసాద్ & గుత్తుల ప్రసాద్ s/o ఏడుకొండలు "
-                            ></h3>
-                                </small>
-                        
+                                 data-te="వాసంశెట్టి సాయి ప్రసాద్ & గుత్తుల ప్రసాద్ s/o ఏడుకొండలు ">
+                             </h3>
+                            </small>
                         </span>
 
                     </td>
@@ -1400,13 +1408,11 @@
                     <td>
 
                         <span class="donor-name">
-
-                            
                             <small>
                                <h3 data-en="Kadali Eswaroa s/o venkataroa "
-                    data-te="కడలి ఈశ్వరావు s/o వెంకటరావు "></h3>
+                                   data-te="కడలి ఈశ్వరావు s/o వెంకటరావు ">
+                               </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1438,11 +1444,10 @@
 
                         <span class="donor-name">
                             <small>
-                            <h3 data-en="Gubbala Govindh Gang"
-                    data-te="గుబ్బల గోవింద్ గ్యాంగ్"
-                    ></h3>
-                        </small>
-
+                                <h3 data-en="Gubbala Govindh Gang"
+                                    data-te="గుబ్బల గోవింద్ గ్యాంగ్">
+                                </h3>
+                            </small>
                         </span>
 
                     </td>
@@ -1475,10 +1480,9 @@
                         <span class="donor-name">
                             <small>
                              <h3 data-en="Kadali Srinivas"
-                            data-te="కడలి శ్రీనివాస్ "
-                            ></h3>
-                        </small>
-
+                                 data-te="కడలి శ్రీనివాస్ ">
+                             </h3>
+                            </small>
                         </span>
 
                     </td>
@@ -1511,10 +1515,9 @@
                         <span class="donor-name">
                             <small>
                              <h3 data-en="Kadali Srinivas & Chutturi venkateswaroa"
-                    data-te="కడలి శ్రీనివాస్ & చుట్టూరి వెంకటేశ్వరావు "
-                ></h3>
-                </small>
-
+                                 data-te="కడలి శ్రీనివాస్ & చుట్టూరి వెంకటేశ్వరావు ">
+                             </h3>
+                            </small>
                         </span>
 
                     </td>
@@ -1545,13 +1548,11 @@
                     <td>
 
                         <span class="donor-name">
-
                             <small>
                                 <h3 data-en="Kadali Sriramurty (Postman)"
-                                data-te="కడలి శ్రీరామమూర్తి (పోస్ట్‌మ్యాన్)"
-                                ></h3>
+                                    data-te="కడలి శ్రీరామమూర్తి (పోస్ట్‌మ్యాన్)">
+                                </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1582,13 +1583,11 @@
                     <td>
 
                         <span class="donor-name">
-
                             <small>
                                 <h3 data-en="Kadali Krishna s/o Satyanarayana"
-                                data-te="కడలి కృష్ణ s/o సత్యనారాయణ"
-                                ></h3>
+                                    data-te="కడలి కృష్ణ s/o సత్యనారాయణ">
+                                </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1619,15 +1618,11 @@
                     <td>
 
                         <span class="donor-name">
-
-                        
-
                             <small>
                                 <h3 data-en="Kadali Venkateswaroa (Pandu)"
-                                data-te="కడలి వెంకటేశ్వరరావు (పండు)"
-                                ></h3>
+                                    data-te="కడలి వెంకటేశ్వరరావు (పండు)">
+                                </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1658,13 +1653,11 @@
                     <td>
 
                         <span class="donor-name">
-
                             <small>
                                  <h3 data-en="Kadali Srinu (Daughters)"
-                                    data-te="కడలి శ్రీను (కూతుళ్లు)"
-                                ></h3>
+                                     data-te="కడలి శ్రీను (కూతుళ్లు)">
+                                 </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1695,13 +1688,11 @@
                     <td>
 
                         <span class="donor-name">
-
                             <small>
                                 <h3 data-en="Kadali varaprasad s/o Sriramulu"
-                                data-te="కడలి వరప్రసాద్ s/o శ్రీరాములు"
-                                ></h3>
+                                    data-te="కడలి వరప్రసాద్ s/o శ్రీరాములు">
+                                </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1734,10 +1725,9 @@
                         <span class="donor-name">
                             <small>
                              <h3 data-en="Bonthu Ramudu - Cooling Water Supply"
-                            data-te="బొంతు రాముడు - నీటి సరఫరా"
-                            ></h3>
+                                 data-te="బొంతు రాముడు - నీటి సరఫరా">
+                             </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1759,6 +1749,7 @@
                     </td>
 
                 </tr>
+
                 <tr>
 
                     <td>13</td>
@@ -1766,13 +1757,11 @@
                     <td>
 
                         <span class="donor-name">
-
                             <small>
                                 <h3 data-en="Kadali Prabhash(dpk) & Guttula Suresh"
-                                data-te="కడలి ప్రభాష్(dpk) & గుత్తుల సురేష్"
-                                ></h3>
+                                    data-te="కడలి ప్రభాష్(dpk) & గుత్తుల సురేష్">
+                                </h3>
                             </small>
-
                         </span>
 
                     </td>
@@ -1794,7 +1783,6 @@
                     </td>
 
                 </tr>
-
 
             </tbody>
 
@@ -1824,7 +1812,6 @@
 
 
 <div class="toranam-strip"></div>
-
 
 
 <!-- =====================================================
@@ -1879,7 +1866,7 @@
     <div class="section-heading reveal">
 
         <span class="heading-icon">
-            👥👥
+            👥
         </span>
 
         <h2
@@ -2072,17 +2059,13 @@
             శ్రీ వినాయక చవితి మహోత్సవాల వేదిక
 
         </p>
-
+<!---
         <a href="https://www.google.com/maps/search/?api=1&query=Kadali+Vari+Palem+Komaragiripatnam"
             target="_blank"
             rel="noopener"
             class="map-button">
 
-            🗺️</a>        
-            
-
-            
-
+            🗺️      
             <span
                 data-te="Google Maps లో చూడండి"
                 data-en="View on Google Maps">
@@ -2092,7 +2075,7 @@
             </span>
 
         </a>
-
+    -->
     </div>
 
 </section>
@@ -2140,10 +2123,10 @@
             </h3>
 
             <p>
-                +91 9581318959
+                +91 7842131964
             </p>
 
-            <a href="tel:+91 9581318959">
+            <a href="tel:+917842131964">
                 📞 Call
             </a>
 
@@ -2166,7 +2149,7 @@
                 +91 9581318959
             </p>
 
-            <a href="tel:9581318959">
+            <a href="tel:+919581318959">
                 📞 Call
             </a>
 
@@ -2189,7 +2172,7 @@
 
             </p>
 
-            <a href="https://wa.me/9581318959"
+            <a href="https://wa.me/919581318959"
                 target="_blank"
                 rel="noopener">
 
@@ -2201,15 +2184,6 @@
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     BACK TO TOP
-===================================================== -->
-<!----
-<button id="backToTop">
-    ↑
-</button> -->
 
 
 <!-- =====================================================
@@ -2233,11 +2207,9 @@
         శ్రీ గణేశాయ నమః
 
     </h2>
+
     <h4 data-te="ఇట్లు"
         data-en="Ittlu"></h4>
-
-
-    
 
     <h2>
         కడలి వారి పాలెం • కొమరగిరిపట్నం
