@@ -352,21 +352,7 @@ setInterval(
 /* =====================================================
    PREMIUM GOLDEN SPARK FIELD
 
-   NOTE (PERFORMANCE FIX):
-   This canvas used to run requestAnimationFrame
-   forever, for the entire lifetime of the page,
-   even while the hero section was scrolled far out
-   of view. Combined with the blurred radial-gradient
-   draw per spark, that constant off-screen redraw
-   is what was making scrolling feel "stuck" / janky,
-   especially on phones.
-
-   Fix: only run the animation loop while the hero
-   section is actually visible on screen, using an
-   IntersectionObserver. It pauses automatically the
-   moment you scroll away and resumes when you scroll
-   back up.
-===================================================== */
+   ==================================== */
 
 const sparkCanvas =
     document.getElementById(
@@ -1239,16 +1225,6 @@ function showToast(message) {
 
 /* =====================================================
    SCROLL SYSTEM
-
-   NOTE (PERFORMANCE FIX):
-   The scroll handler previously ran its full body
-   (reading layout metrics + writing styles) on every
-   single native "scroll" event, which fires far more
-   often than the screen can actually repaint. That
-   layout-thrashing is a second cause of the "stuck"
-   scrolling feeling. It's now wrapped in
-   requestAnimationFrame so the work only happens once
-   per rendered frame.
 ===================================================== */
 
 const navbar =
@@ -1271,6 +1247,29 @@ const scrollFill =
 
 let scrollTicking = false;
 
+let scrollStopTimer = null;
+
+let cachedDocHeight = 0;
+
+function updateDocHeight() {
+    cachedDocHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+}
+
+updateDocHeight();
+window.addEventListener("load", updateDocHeight);
+window.addEventListener("resize", updateDocHeight);
+setInterval(updateDocHeight, 1000);
+
+function markScrolling() {
+    document.body.classList.add("is-scrolling");
+    clearTimeout(scrollStopTimer);
+    scrollStopTimer = setTimeout(() => {
+        document.body.classList.remove("is-scrolling");
+    }, 150);
+}
+
 
 function onScroll() {
 
@@ -1278,10 +1277,7 @@ function onScroll() {
         window.scrollY;
 
 
-    const docHeight =
-        document.documentElement
-            .scrollHeight -
-        window.innerHeight;
+    const docHeight = cachedDocHeight;
 
 
     const progress =
@@ -1325,6 +1321,8 @@ function onScroll() {
 window.addEventListener(
     "scroll",
     () => {
+
+        markScrolling();
 
         if (!scrollTicking) {
 
